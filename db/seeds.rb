@@ -17,13 +17,13 @@ end
 10.times{Restaurant.create(
             name: Faker::Restaurant.name)}
 
-20.times{Topping.create(
+100.times{Topping.create(
             name: Faker::Food.ingredient)}   
 
 restaurants = Restaurant.all  
       
             
-10.times{Pizza.create(
+30.times{Pizza.create(
             name: Faker::Hipster.word,
             vegetarian: random_boolean,
             restaurant: restaurants.sample
@@ -32,8 +32,8 @@ restaurants = Restaurant.all
 topping = Topping.all
 pizza = Pizza.all
 
- 20.times{PizzaTopping.create(
-            topping_id: topping.sample,
-            pizza_id: pizza.sample
+ 100.times{PizzaTopping.create(
+            topping_id: topping.sample.id,
+            pizza_id: pizza.sample.id
  )}
     

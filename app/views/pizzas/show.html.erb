@@ -1,1 +1,21 @@
-<h1> <%= @pizza.name %> </h1>
+<h1> Pizza Name: <%= @pizza.name %> </h1>
+<ul>
+<h2> Restaurant Name: </h2> 
+<% if @pizza.restaurant == true%> 
+<h3><%= link_to @pizza.restaurant.name, restaurant_path(@pizza.restaurant)%></h3>
+<% else %>
+<%= "none"%> 
+<%end%>
+
+<h2> Toppings: </h2>
+<% @pizza.toppings.each do |topping| %> 
+
+  <li>
+ <%= topping.name %>
+  </li>
+
+<%end%>
+<h2> Vegetarian?  </h2> <%= @pizza.display_veg %>
+<br><br>
+<%= link_to ("Back to Pizzas"), pizzas_path %> 
+</ul>
