@@ -5,20 +5,35 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+Restaurant.destroy_all
+Topping.destroy_all
+Pizza.destroy_all
+PizzaTopping.destroy_all
 
-toppings = [chicken, onion, green pepper, pepperoni, ham, olive, pineapple, spinach, sausage, cheese]
-pizza = [hawaiian, california, margherita, pepperoni, veggie, meat, everything]
+def random_boolean
+    rand() > 0.5
+end
 
 10.times{Restaurant.create(
             name: Faker::Restaurant.name)}
 
 20.times{Topping.create(
             name: Faker::Food.ingredient)}   
+
+restaurants = Restaurant.all  
+      
             
 10.times{Pizza.create(
             name: Faker::Hipster.word,
-            vegetaraian: random_boolean,
+            vegetarian: random_boolean,
             restaurant: restaurants.sample
 )}          
 
+topping = Topping.all
+pizza = Pizza.all
+
+ 20.times{PizzaTopping.create(
+            topping_id: topping.sample,
+            pizza_id: pizza.sample
+ )}
     
