@@ -1,8 +1,10 @@
+
+<center><h4 style="font-size:20px ; color:#AC9F9A ; font-family:'Impact'">
 <%= form_tag(pizza) do %> 
-  <%= label_tag("pizza[name]", "Pizza name:" )%> 
+  <%= label_tag("pizza[name]", "Pizza Name:" )%> 
   <%= text_field_tag ("pizza[name]")%>
   <br><br>
-  <%= label_tag("pizza[restaurant]", "Restaurant name:")%>
+  <%= label_tag("pizza[restaurant]", "Restaurant Name:")%>
   <%= select_tag("pizza[restaurant]", options_from_collection_for_select(@restaurants, :id, :name)) %>
   <br><br>
   <%= label_tag("pizza[topping]", "Topping 1:")%>
@@ -16,6 +18,7 @@
   <br><br>
   <%= label_tag("pizza[vegetarian]", "Vegetarian?:")%> 
   <%= select_tag("pizza[vegetarian]", options_for_select([true, false])) %> 
-  <br><br>
-  <%= submit_tag "Make my Pizza!" %>
+  <br><br></h4></p>
+  <%= submit_tag "PIZZA MAGIC", style: "font-size:30px" %>
   <%end%>
+</center>

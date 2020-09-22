@@ -1,27 +1,28 @@
-<h1> Pizza Name: <%= @pizza.name %> </h1>
+<center><h1 style="font-size:55px ; color:#A62E02 ; font-family: 'Impact'"> <%= @pizza.name.upcase %> </h1>
 <ul>
-<h2> Restaurant Name: </h2> 
+<h2 style="font-size:35px ; color:#D4731E ; font-family: 'Impact'"> Restaurant Name: </h2> 
 <% if @pizza.restaurant %> 
-<h3><%= link_to @pizza.restaurant.name, restaurant_path(@pizza.restaurant)%></h3>
+<h1><%= link_to @pizza.restaurant.name, restaurant_path(@pizza.restaurant), style: "color: white;"%></h1>
 <% else %>
 <%= "none"%> 
 <%end%>
 
-<h2> Toppings: </h2>
+<h2 style="font-size:35px ; color:#D4731E ; font-family: 'Impact'"> Toppings: </h2>
 <% @pizza.toppings.each do |topping| %> 
 
-  <li>
- <%= topping.name %>
+  <li><p style="font-size:20px ; color:white ; font-family:'Impact'">
+ <%= topping.name %></p>
   </li>
 
 <%end%>
-<h2> Vegetarian?  </h2> <%= @pizza.display_veg %>
+<h2 style="font-size:35px ; color:#D4731E ; font-family: 'Impact'"> Vegetarian?  </h2> <p style="font-size:20px ; color:white ; font-family:'Impact'"><%= @pizza.display_veg %>
 <br><br>
-<%= link_to ("Back to Pizzas"), pizzas_path %> 
+<%= link_to ("Back to Pizzas"), pizzas_path, style: "color: white;" %> 
 </ul>
 <br><br>
-<%= link_to ("Edit this Pizza"), edit_pizza_path %> 
+<%= link_to ("Edit this Pizza"), edit_pizza_path, style: "color: white;" %> 
 <br><br>
-<%= link_to ("Destroy Pizza"), pizza_path(@pizza.id),
+<%= link_to ("Destroy Pizza"), pizza_path(@pizza.id), style:"color:white;", 
 method: "delete", 
 data: {:confirm => "Are You Sure?"} %>
+</center>
