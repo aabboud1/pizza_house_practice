@@ -1,0 +1,23 @@
+<h1> Edit Pizza </h1> 
+
+<%= form_tag('/pizza') do %> 
+  <%= label_tag("pizza[name]", "Pizza name:" )%> 
+  <%= text_field_tag ("pizza[name]")%>
+  <br><br>
+  <%= label_tag("pizza[restaurant]", "Restaurant name:")%>
+  <%= select_tag("pizza[restaurant]", options_from_collection_for_select(@restaurants, :id, :name)) %>
+  <br><br>
+  <%= label_tag("pizza[topping]", "Topping 1:")%>
+  <%= text_field_tag ("pizza[topping][]") %> 
+  <br><br>
+  <%= label_tag("pizza[topping]", "Topping 2:")%>
+  <%= text_field_tag ("pizza[topping][]") %> 
+  <br><br>
+  <%= label_tag("pizza[topping]", "Topping 3:")%>
+  <%= text_field_tag ("pizza[topping][]") %> 
+  <br><br>
+  <%= label_tag("pizza[vegetarian]", "Vegetarian?:")%> 
+  <%= select_tag("pizza[vegetarian]", options_for_select([true, false])) %> 
+  <br><br>
+  <%= submit_tag "Edit my Pizza!" %>
+  <%end%>

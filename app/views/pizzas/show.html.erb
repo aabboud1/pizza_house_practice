@@ -1,7 +1,7 @@
 <h1> Pizza Name: <%= @pizza.name %> </h1>
 <ul>
 <h2> Restaurant Name: </h2> 
-<% if @pizza.restaurant == true%> 
+<% if @pizza.restaurant %> 
 <h3><%= link_to @pizza.restaurant.name, restaurant_path(@pizza.restaurant)%></h3>
 <% else %>
 <%= "none"%> 
@@ -19,3 +19,9 @@
 <br><br>
 <%= link_to ("Back to Pizzas"), pizzas_path %> 
 </ul>
+<br><br>
+<%= link_to ("Edit this Pizza"), edit_pizza_path %> 
+<br><br>
+<%= link_to ("Destroy Pizza"), pizza_path(@pizza.id),
+method: "delete", 
+data: {:confirm => "Are You Sure?"} %>
